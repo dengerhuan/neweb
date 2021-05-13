@@ -1,0 +1,34 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard",
+      "badge": {
+        "color": "red-500",
+        "value": "5"
+      }
+    },
+    {
+      "route": "icon",
+      "name": "icon",
+      "type": "link",
+      "icon": "add",
+      "badge": {
+        "color": "red-500",
+        "value": "5"
+      }
+    },
+    {
+      "route": "card",
+      "name": "card",
+      "type": "link",
+      "icon": "sd_card",
+      "badge": {
+        "color": "red-500",
+        "value": "5"
+      }
+    }
+  ]
+}

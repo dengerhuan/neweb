@@ -1,0 +1,88 @@
+<mat-toolbar class="ne_header" color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+
+  <span style="flex: 1"></span>
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+
+  <mat-icon aria-label="Example home icon">home</mat-icon>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="ne_default_layout">
+  <mat-sidenav mode="side" #drawer opened class="ne_default_layout_nav_wrap">
+
+    <div class="ne_default_layout_nav scrollbar-none">
+      <mat-nav-list style="padding-top: 0">
+        <a mat-list-item [routerLink]="menu.route" *ngFor="let menu of menus" routerLinkActive="">
+          <mat-icon matListIcon>{{menu.icon}}</mat-icon>
+          <p matLine> {{menu.name}}</p>
+        </a>
+
+
+<!--        <mat-list-item >-->
+<!--          <mat-icon matListIcon>dashboard</mat-icon>-->
+<!--          <h3 matLine> 113 </h3>-->
+<!--          <p matLine> 456 </p>-->
+<!--          <p matLine class="demo-2">567 </p>-->
+<!--        </mat-list-item>-->
+        <!--        <mat-list-item *ngFor="let link of links">-->
+        <!--          <a matLine routerLink="dashboard">{{ link }}</a>-->
+        <!--          <p matLine class="demo-2"> sda </p>-->
+
+        <!--          <mat-icon matListIcon>info</mat-icon>-->
+
+        <!--        </mat-list-item>-->
+
+        <!--        <h3 matSubheader>Folders</h3>-->
+        <!--        <mat-list-item *ngFor="let folder of links">-->
+        <!--          <mat-icon matListIcon>folder</mat-icon>-->
+        <!--          <h4 matLine>萨达</h4>-->
+        <!--          <p matLine class="demo-2"> sda </p>-->
+        <!--        </mat-list-item>-->
+        <!--        <mat-divider></mat-divider>-->
+        <!--        <h3 matSubheader>Notes</h3>-->
+        <!--        <mat-list-item *ngFor="let note of links">-->
+        <!--          <mat-icon matListIcon>note</mat-icon>-->
+        <!--          <h4 matLine>打</h4>-->
+        <!--          <p matLine class="demo-2"> 上 </p>-->
+        <!--        </mat-list-item>-->
+        <!--      </mat-nav-list>-->
+
+        <!--      <mat-divider></mat-divider>-->
+
+        <!--      <mat-nav-list>-->
+        <!--        <a mat-list-item href="..." *ngFor="let link of links"> {{ link }} </a>-->
+      </mat-nav-list>
+    </div>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content class="ne_default_layout_content">
+
+    <router-outlet></router-outlet>
+    <!--    -->
+    <!--    <button type="button" mat-button (click)="drawer.toggle()">-->
+    <!--      Toggle sidenav-->
+    <!--    </button>-->
+
+
+    <!--    <mat-action-list>-->
+    <!--      <button mat-list-item (click)="save()"> Save</button>-->
+    <!--      <button mat-list-item (click)="undo()"> Undo</button>-->
+    <!--    </mat-action-list>-->
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

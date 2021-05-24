@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit {
     ];
     this.chart = new Chart({
       container, // 指定图表容器 ID
-      width : 600, // 指定图表宽度
+      width : 400, // 指定图表宽度
       height : 300 // 指定图表高度
     });
 

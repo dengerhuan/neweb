@@ -23,10 +23,12 @@
 
     <div class="ne_default_layout_nav scrollbar-none">
       <mat-nav-list style="padding-top: 0">
+        <div mat-subheader>dashboard</div>
         <a mat-list-item [routerLink]="menu.route" *ngFor="let menu of menus" routerLinkActive="">
           <mat-icon matListIcon>{{menu.icon}}</mat-icon>
           <p matLine> {{menu.name}}</p>
         </a>
+        <mat-divider></mat-divider>
 
 
 <!--        <mat-list-item >-->

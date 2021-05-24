@@ -51,4 +51,28 @@ export class DefaultLayoutComponent implements OnInit {
       console.log(this.menus);
     });
   }
+
+//
+//
+//   ngOnInit() {
+//
+//     this.authenticationService.userChanged().subscribe(
+//       (user: User) => {
+//         this.name = user.givenName;
+//         this.isAdmin = this.authenticationService.isInRole('administrator');
+//       });
+//
+//     this.scrollDispatcher.scrolled()
+//       .pipe(map((event: CdkScrollable) => this.getScrollPosition(event)))
+//       .subscribe(scrollTop => this.ngZone.run(() => this.shrinkToolbar = scrollTop > this.SHRINK_TOP_SCROLL_POSITION ? true : false));
+//   }
+//
+//   getScrollPosition(event) {
+//     if (event) {
+//       return event.getElementRef().nativeElement.scrollTop;
+//     } else {
+//       return window.scrollY;
+//     }
+//   }
+// }
 }

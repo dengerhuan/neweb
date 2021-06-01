@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from '@antv/g2';
+import {Component, OnInit} from '@angular/core';
+import {Chart} from '@antv/g2';
 
 import {PageEvent} from '@angular/material/paginator';
 import {AfterViewInit, ViewChild} from '@angular/core';
@@ -25,7 +25,6 @@ const NAMES: string[] = [
 ];
 
 
-
 export interface Tile {
   color: string;
   cols: number;
@@ -38,7 +37,7 @@ export interface Tile {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.less']
 })
-export class DashboardComponent implements OnInit ,AfterViewInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
@@ -48,7 +47,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit {
 
   title = 'app';
   data = {};
-  chart ;
+  chart;
   graph;
 
   tiles: Tile[] = [
@@ -73,23 +72,67 @@ export class DashboardComponent implements OnInit ,AfterViewInit {
 
   }
 
-  ngOnInit(): void {
-    this.chartData('c1');
-    this.chartData('c2');
-    this.chartData('c3');
+  ngAfterViewInit(): void {
+
+    setTimeout(() => {
+      this.install();
+    }, 10);
+
+
+    // this.chartData('c1');
+    // this.chartData('c2');
+    // this.chartData('c3');
   }
+
+  install(): void {
+
+
+    const data = [
+      {year: '1951 年', sales: 38},
+      {year: '1952 年', sales: 52},
+      {year: '1956 年', sales: 61},
+      {year: '1957 年', sales: 145},
+      {year: '1958 年', sales: 48},
+      {year: '1959 年', sales: 38},
+      {year: '1960 年', sales: 38},
+      {year: '1962 年', sales: 38},
+    ];
+
+    const cc = new Chart({
+      container: 'c1',
+      autoFit: true,
+      height: 200,
+      // padding: [0]
+    });
+
+    cc.data(data);
+    cc.scale('sales', {
+      alias: '销售量',
+    });
+    cc.axis('sales', {
+      title: {},
+    });
+
+    cc.interval().position('year*sales');
+
+
+    cc.render();
+
+
+  }
+
   chartData(container: string): void {
     this.data = [
-      { genre: 'Sports', sold: 275 },
-      { genre: 'Strategy', sold: 115 },
-      { genre: 'Action', sold: 120 },
-      { genre: 'Shooter', sold: 350 },
-      { genre: 'Other', sold: 150 }
+      {genre: 'Sports', sold: 275},
+      {genre: 'Strategy', sold: 115},
+      {genre: 'Action', sold: 120},
+      {genre: 'Shooter', sold: 350},
+      {genre: 'Other', sold: 150}
     ];
     this.chart = new Chart({
       container, // 指定图表容器 ID
-      width : 400, // 指定图表宽度
-      height : 300 // 指定图表高度
+      width: 400, // 指定图表宽度
+      height: 300 // 指定图表高度
     });
 
     this.chart.source(this.data);
@@ -98,7 +141,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit {
     this.chart.render();
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -119,6 +162,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit {
   }
 
 }
+
 function createNewUser(id: number): UserData {
   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
